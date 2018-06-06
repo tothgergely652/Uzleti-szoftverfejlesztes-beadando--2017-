@@ -1,0 +1,70 @@
+#{extends 'main.html' /}
+#{set title:'Alkalmazott hozzáadása' /}
+
+<h1>Alkalmazott hozzáadása</h1>
+
+<form action="addEmployee" method="post">
+   <table>
+   		<tr>
+   			<td align="right">Cég:</td>
+   			<td>
+	   			<select name="companyId">
+			      	#{list items:company, as:'company'}
+			      		<option value="${company.companyId}" #{if flash.companyId == company.companyId.toString()} selected="selected" #{/if}>
+			      			${company.companyName}
+			      		</option>
+			      	#{/list}
+			    </select>
+			    <span style="color:red">#{error 'companyId' /}</span>	
+   			</td>
+   		</tr>
+   		<tr>
+   			<td align="right">Személyigazolvány szám:</td>
+   			<td>
+   				 <input type="text" name="idCardNumber" value="${flash.idCardNumber}" /> 
+     			 <span style="color:red">#{error 'idCardNumber' /}</span>
+   			</td>
+   		</tr>
+   		<tr>
+   			<td align="right">Név:</td>
+   			<td>
+	   			 <input type="text" name="employeeName" value="${flash.employeeName}" /> 
+	      		 <span style="color:red">#{error 'employeeName' /}</span>
+   			</td>
+   		</tr>
+   		<tr>
+   			<td align="right">Fizetés:</td>
+   			<td>
+	   			 <input type="text" name="salary" value="${flash.salary}" /> Ft
+	     		 <span style="color:red">#{error 'salary' /}</span>
+   			</td>
+   		</tr>
+   		<tr>
+   			<td align="right">Születési dátum:</td>
+   			<td>
+	   			 <input type="text" name="dateOfBirth" value="${flash.dateOfBirth}" /> 
+	     		 <span style="color:red">#{error 'dateOfBirth' /}</span>
+			</td>
+   		</tr>
+   		<tr>
+   			<td align="right">Feladatkör:</td>
+   			<td>
+				<select name="position" >
+		      		#{list items:select, as:'select'}
+		      		<option value="${select}">
+		      			${select}
+		      		</option>
+		      	#{/list}
+		      	</select>
+		      	<span style="color:red">#{error 'position' /}</span>
+   			</td>
+   		</tr>
+   		<tr>
+   			<td>
+   			</td>
+   			<td>
+   				<input type="submit" value="Alkalmazott hozzáadása" /> 
+   			</td>   		
+   		</tr>
+   </table>
+</form>

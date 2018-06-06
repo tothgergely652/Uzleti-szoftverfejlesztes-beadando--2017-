@@ -1,0 +1,59 @@
+<h2>Cég: <b>${comp.companyName}</b></h2>
+
+#{if flash.errorMessage != null}
+	<div style="color:red">${flash.errorMessage}</div>
+#{/if}
+
+<table>
+	<tr>
+		<td align="right"><u>Adószám:</u></td>
+		<td>${comp.taxNumber}</td>
+	</tr>
+	<tr>
+		<td align="right"><u>Város:</u></td>
+		<td>${comp.addressCity}</td>
+	</tr>
+	<tr>
+		<td align="right"><u>Irányítószám:</u></td>
+		<td>${comp.addressPostcode}</td>
+	</tr>
+	<tr>
+		<td align="right"><u>Utca:</u></td>
+		<td>${comp.addressStreet}</td>
+	</tr>
+	<tr>
+		<td align="right"><u>Házszám:</u></td>
+		<td>${comp.addressHouseNumber}</td>
+	</tr>
+</table>
+
+	
+<h3>Alkalmazottak:</h3>
+
+<a href="addEmployee">Alkalmazott hozzáadása</a>
+
+<table>
+	<tr>
+		<th width="150px" align="center"><b>Név</b></th>
+		<th width="150px" align="center"><b>Személyigazolvány szám</b></th>
+		<th width="150px" align="center"><b>Fizetés</b></th>
+		<th width="150px" align="center"><b>Születési dátum</b></th>
+		<th width="150px" align="center"><b>Pozíció</b></th>
+		<th></th>
+	</tr>
+	#{list items:comp.employeeList, as:'emp'}
+	<tr>
+		<td align="center">${emp.employeeName}</td>
+		<td align="center">${emp.idCardNumber}</td>
+		<td align="center">${emp.salary} Ft</td>
+		<td align="center">${emp.dateOfBirth}</td>
+		<td align="center">${emp.position}</td>
+		<td align="center"><a href="employeeDelete?idCardNumber=${emp.idCardNumber}">Alkalmazott törlése</a></td>
+	</tr>
+	#{/list}
+</table>
+
+#{list items:error, as:'error'}
+<p><font color=red>Figyelem, nincs <b>${error}</b> alkalmazott a cégnél!</font></p>
+#{/list}
+<a href="mainPage">Vissza</a>

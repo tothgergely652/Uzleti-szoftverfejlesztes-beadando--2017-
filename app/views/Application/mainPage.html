@@ -1,0 +1,32 @@
+#{extends 'main.html' /}
+#{set title:'Főoldal' /}
+
+#{if flash.errorMessage != null}
+	<div style="color:red">${flash.errorMessage}</div>
+#{/if}
+
+<h1>Főoldal</h1>
+
+<a href="createCompany">Cég létrehozása</a>
+
+<table>
+	<tr>
+		<th width="150px" align="center">Cég név</th>
+		<th width="150px" align="center">Város</th>
+		<th width="150px" align="center">Alkalmazottak száma</th>
+		<th width="150px" align="center">Teljes bérköltség</th>
+		<th width="150px" align="center"> </th>
+		<th width="150px" align="center"> </th>
+	</tr>
+
+#{list comp, as:'comp'}
+	<tr>
+		<td align="center">${comp.companyName}</td>
+		<td align="center">${comp.addressCity}</td>
+		<td align="center">${comp.countOfEmployee}</td>
+		<td align="center">${comp.sumOfSalary} Ft</td>
+		<td align="center"><a href="companyDetails?companyId=${comp.companyId}">Cég megtekintése</a></td>
+		<td align="center"><a href="deleteCompany?companyId=${comp.companyId}">Cég törlése</a></td>
+	</tr>	
+#{/list}
+</table>

@@ -1,0 +1,43 @@
+#{extends 'main.html' /}
+#{set title:'Cég létrehozása' /}
+
+<h1>Cég létrehozása</h1>
+
+<form action="createCompany" method="post">
+   <table>
+   		<tr>
+   			<td align="right">Cég neve:</td>
+   			<td><input type="text" name="companyName" value="${flash.companyName}" /></td>
+      		<td><span style="color:red">#{error 'companyName' /}</span></td>
+   		</tr>
+   		<tr>
+   			<td align="right">Adószám:</td>
+   			<td><input type="text" name="taxNumber" value="${flash.taxNumber}" /></td>
+      		<td><span style="color:red">#{error 'taxNumber' /}</span></td>
+      	</tr>
+      	<tr>
+   			<td align="right">Irányítószám:</td>
+   			<td><input type="text" name="addressPostcode" value="${flash.addressPostcode}" /></td>
+      		<td><span style="color:red">#{error 'addressPostcode' /}</span></td>
+      	</tr>
+      	<tr>
+   			<td align="right">Város:</td>
+   			<td><input type="text" name="addressCity" value="${flash.addressCity}" /></td>
+      		<td><span style="color:red">#{error 'addressCity' /}</span></td>
+   		</tr>
+   		<tr>
+   			<td align="right">Utca:</td>
+   			<td><input type="text" name="addressStreet" value="${flash.addressStreet}" /></td>
+      		<td><span style="color:red">#{error 'addressStreet' /}</span></td>
+   		</tr>
+   		<tr>
+   			<td align="right">Házszám:</td>
+   			<td><input type="text" name="addressHouseNumber" value="${flash.addressHouseNumber}" /></td>
+      		<td><span style="color:red">#{error 'addressHouseNumber' /}</span></td>
+   		</tr>
+   		<tr>
+   			<td></td>
+   			<td><input type="submit" value="Cég létrehozása" /> </td>
+   		</tr>
+   </table>
+</form>
