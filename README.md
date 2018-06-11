@@ -2,7 +2,9 @@
 Cég és dolgozó nyílvantartás - Java Play 1.4.3. Framework
 
 Üzleti szoftverfejlesztés kurzus teljesítéséhez írt beadandó, amely a következő feladatnak tesz eleget:
+
 Olyan webalkalmazás, amely segítségével cégek adatait lehet kezelni és megtekinteni kényelmesen.
+
 Elvárások:
 - Szeretnénk céget felvinni. A cégnek van neve, adószáma és címe.
 - A címadatok: város, irányítószám, utca, házszám
